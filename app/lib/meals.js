@@ -5,8 +5,10 @@ import xss from 'xss'
 import { MongoClient } from 'mongodb'
 import AWS from 'aws-sdk'
 import multer from 'multer'
+import dotenv from 'dotenv'
 
 const db = sql('meals.db')
+dotenv.config()
 
 // export async function getMeals(){
 //     await new Promise((resolve)=>setTimeout(resolve,2000))
@@ -16,8 +18,8 @@ const db = sql('meals.db')
 //S3 Config
 
 const s3 = new AWS.S3({
-    accessKeyId: 'AKIA5ZYARML4LEDQNKWO',
-    secretAccessKey: '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',
+    accessKeyId: process.env.accessKeyId,
+    secretAccessKey: process.env.secretAccessKey,
     region: 'us-east-1'
 })
 

@@ -8,3 +8,9 @@
     list-style: none;
     padding: 0;
   }
+
+  .meals > div{
+    display: flex;
+    justify-content: center;
+    color: white;
+  }

@@ -1,18 +1,25 @@
 'use server';
 
 import { redirect } from "next/navigation";
-import { saveMeal } from "./meals";
+import { SaveMeal } from "./meals";
 import { revalidatePath } from "next/cache";
 
 function isInValid(text){
   return !text || text.trim() === ''
 }
 export async function shareMeal(prevState,formData) {
+  const imageFile = formData.get('image')
+
+  const fileBuffer = await imageFile.arrayBuffer()
+  const image = {
+    buffer:Buffer.from(fileBuffer),
+    mimeType:imageFile.type
+  }
     const meal = {
       title:formData.get('title'),
       summary:formData.get('summary'),
       instructions:formData.get('instructions'),
-      image:formData.get('image'),
+      image,
       creator:formData.get('name'),
       creator_email:formData.get('email')
     }
@@ -22,7 +29,7 @@ export async function shareMeal(prevState,formData) {
         message:'Invalid Input.'
       }
     }
-   await saveMeal(meal);
+   await SaveMeal(meal);
    revalidatePath('/meals')
    redirect('/meals')
     

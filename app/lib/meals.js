@@ -27,7 +27,7 @@ const upload = multer({storage:multer.memoryStorage()})
 
 
 export async function  GetMeals() {
-    const connection = MongoClient.connect('mongodb+srv://narendrapb1234:UPM5TJONDRxVtyWE@cluster0.frbpw.mongodb.net/meals?retryWrites=true&w=majority&appName=Cluster0')
+    const connection = MongoClient.connect(process.env.MONGO_URL)
     const db = (await connection).db()
     const mealsCollection = db.collection('meals')
 
@@ -38,7 +38,7 @@ export async function  GetMeals() {
 //     return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug)
 // }
 export async function GetMeal(slug){
-    const connection = MongoClient.connect('mongodb+srv://narendrapb1234:UPM5TJONDRxVtyWE@cluster0.frbpw.mongodb.net/meals?retryWrites=true&w=majority&appName=Cluster0')
+    const connection = MongoClient.connect(process.env.MONGO_URL)
     const db = (await connection).db()
     const mealsCollection = db.collection('meals')
 
@@ -72,7 +72,7 @@ export async function SaveMeal(meal){
 
     // meal.image = `/images/${fileName}`
 
-    const connection = MongoClient.connect('mongodb+srv://narendrapb1234:UPM5TJONDRxVtyWE@cluster0.frbpw.mongodb.net/meals?retryWrites=true&w=majority&appName=Cluster0')
+    const connection = MongoClient.connect(process.env.MONGO_URL)
     const db = (await connection).db()
     const mealsCollection = db.collection('meals')
 

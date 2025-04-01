@@ -1,5 +1,4 @@
 import fs from 'node:fs'
-import sql from 'better-sqlite3'
 import slugify from 'slugify'
 import xss from 'xss'
 import { MongoClient } from 'mongodb'
@@ -7,7 +6,6 @@ import AWS from 'aws-sdk'
 import multer from 'multer'
 import dotenv from 'dotenv'
 
-const db = sql('meals.db')
 dotenv.config()
 
 // export async function getMeals(){

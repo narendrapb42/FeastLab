@@ -5,7 +5,7 @@ FeastLab is a platform where food lovers can share, discover, and enjoy recipes.
 ## 🚀 Features
 
 ### 1️⃣ Add a Meal to the Database
-- Users can submit their favorite recipes, which are stored in an **SQLite database** using the `better-sqlite3` library.
+- Users can submit their favorite recipes, which are stored in an **SQLite database** using the `better-sqlite3` library if you want to store locally. I have also implemented AWS S3 for cloud based storage.
 - Each meal entry includes a **name, ingredients, preparation steps, and an image URL**.
 
 ### 2️⃣ View Meals
@@ -18,12 +18,11 @@ FeastLab is a platform where food lovers can share, discover, and enjoy recipes.
 ### 4️⃣ Deployment on Vercel
 - The platform is deployed on **Vercel**, ensuring fast and reliable performance.
 - Continuous integration enables automatic updates when changes are pushed to GitHub.
-## - https://feast-lab.vercel.app/
 
 ## 🛠️ Tech Stack
 - **Frontend:** Next.js (App Router), React, Tailwind CSS
 - **Backend:** Next.js
-- **Database:** SQLite (via `better-sqlite3`)
+- **Database:** SQLite (via `better-sqlite3`) (In device) / AWS S3 (Cloud Based) 
 - **Deployment:** Vercel
 
 ## 📦 Installation
